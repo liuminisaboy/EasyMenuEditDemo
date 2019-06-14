@@ -74,7 +74,10 @@
             //将 from cell 的信息和位置给到 to cell
             self.dragingCell.frame = cell.frame;
             self.dragingCell.titleLabel.text = cell.titleLabel.text;
-            [self.dragingCell setTransform:CGAffineTransformMakeScale(1.1, 1.1)];
+            
+            [UIView animateWithDuration:0.35 animations:^{
+                [self.dragingCell setTransform:CGAffineTransformMakeScale(1.1, 1.1)];
+            }];
             
             //将 from cell隐藏
             cell.hidden = YES;
@@ -177,7 +180,6 @@
     }
     return tmp;
 }
-
 
 #pragma mark - UICollectionViewDataSource,UICollectionViewDelegate
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{
